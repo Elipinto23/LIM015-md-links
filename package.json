@@ -1,17 +1,16 @@
 {
   "name": "md-links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Comprobacion de links",
-  "main": "index.js",
+  "main": "./src/md-links.js",
   "bin": {
-    "md-links": "./src/md-links.js"
+    "md-links": "/src/md-links-cli.js"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest --verbose --coverage"
-
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,12 @@
     "url": "https://github.com/Elipinto23/LIM015-md-links/issues"
   },
   "homepage": "https://github.com/Elipinto23/LIM015-md-links#readme",
+  "files": [
+    "index.js",
+    "./src/md-links.js",
+    ".src/md-links-cli.js",
+    ".src/funciones.js"
+  ],
   "dependencies": {
     "chalk": "^4.1.1",
     "node-fetch": "^2.6.1"

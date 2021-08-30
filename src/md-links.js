@@ -7,7 +7,7 @@ const {
   buscarLinksEnArchivo,
 } = require("./src/funciones");
 
-mdLinks = function (path, opts) {
+mdLinks = function (path, opts = { validate: false }) {
   return new Promise((resolve, reject) => {
     let rutaFinal = path;
     if (!esRutaAbsoluta(rutaFinal)) {
