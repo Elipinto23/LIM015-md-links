@@ -30,7 +30,7 @@ if (process.argv.length === 1) {
 }
 
 if (process.argv.length === 2) {
-  switch (argv[1]) {
+  switch (process.argv[1]) {
     case "--validate":
       mdlinks(process.argv[0], { validate: true })
         .then((res) => {
