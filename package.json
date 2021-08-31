@@ -25,8 +25,8 @@
   "files": [
     "index.js",
     "./src/md-links.js",
-    ".src/md-links-cli.js",
-    ".src/funciones.js"
+    "./src/md-links-cli.js",
+    "./src/funciones.js"
   ],
   "dependencies": {
     "chalk": "^4.1.1",
