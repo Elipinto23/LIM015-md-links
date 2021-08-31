@@ -15,11 +15,15 @@ mdLinks = function (path, opts = { validate: false }) {
     }
 
     if (!existeRuta(rutaFinal)) {
-      reject("Path doesnt exists: + " + rutaFinal);
+      reject("La ruta no existe:  " + rutaFinal);
     }
 
     let archivosMD = buscarArchivosMd(rutaFinal);
     let arrayLinks = buscarLinksEnArchivo(archivosMD);
+
+    if (arrayLinks.length == 0) {
+      reject("Error no hay Links: " + rutaFinal);
+    }
 
     if (opts.validate) {
       arrayLinks = validarLinks(arrayLinks);

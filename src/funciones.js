@@ -94,6 +94,13 @@ function validarLinks(links) {
   return linksValidados;
 }
 
+function truncarTexto(texto, longitud) {
+  if (texto.length > longitud) {
+    return texto.slice(0, longitud);
+  }
+  return texto;
+}
+
 module.exports = {
   esRutaAbsoluta,
   transformarRutaRelativa,
@@ -103,4 +110,5 @@ module.exports = {
   esDirectorio,
   buscarLinksEnArchivo,
   validarLinks,
+  truncarTexto,
 };
