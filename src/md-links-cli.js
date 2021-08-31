@@ -47,9 +47,9 @@ if (process.argv.length === 2) {
     case "--stats":
       mdlinks(process.argv[0], { validate: true })
         .then((res) => {
-          let estadisticas = estadisticas(res);
-          console.log(`Total: ${estadisticas.totalLinks}\n`);
-          console.log(`Unique: ${estadisticas.linksUnicos}\n`);
+          let estadistica = estadisticas(res);
+          console.log(`Total: ${estadistica.totalLinks}\n`);
+          console.log(`Unique: ${estadistica.linksUnicos}\n`);
         })
         .catch((err) => {
           console.error(err);
@@ -69,12 +69,12 @@ if (process.argv.length === 3) {
     (process.args[1] === "--validate" && process.args[2] === "--stats")
   ) {
     mdlinks(process.argv[0], { validate: true })
-      .then((response) => {
-        let estadisticas = estadisticas(res);
-        let linksRotos = linksRotos(res);
-        console.log(`Total: ${estadisticas.totalLinks}\n`);
-        console.log(`Unique: ${estadisticas.linksUnicos}\n`);
-        console.log(`Broken: ${linksRotos.length}\n`);
+      .then((res) => {
+        let estadistica = estadisticas(res);
+        let linksRotosEstadistica = linksRotos(res);
+        console.log(`Total: ${estadistica.totalLinks}\n`);
+        console.log(`Unique: ${estadistica.linksUnicos}\n`);
+        console.log(`Broken: ${linksRotosEstadistica.length}\n`);
       })
       .catch((err) => {
         console.error(err);
