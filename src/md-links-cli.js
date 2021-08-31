@@ -4,6 +4,9 @@ const { estadisticas, linksRotos } = require("./stats.js");
 const { truncarTexto } = require("./funciones.js");
 const mdlinks = require("./md-links.js");
 
+//para que tome a partir del tercer argumento como cero
+const [, , ...args] = process.argv;
+
 const textHelp =
   "Para conmenzar puedes usar --stats, --validate o ambos (--stats --validate).\nSi necesitas ayuda, intenta con --help.";
 
@@ -15,12 +18,17 @@ const help = `
   '--validate --stats' al ingresar ambas opciones obtiene el total de links, cantidad de links únicos y links rotos.
   ***************************************************************************************************************************************`;
 
-if (process.argv.length === 1) {
-  mdlinks(process.argv[0], { validate: false })
+
+if(args.length === 0) {
+  console.error('Ingrese la ruta de un archivo');
+}
+
+if (args.length === 1) {
+  mdlinks(args[0], { validate: false })
     .then((res) => {
       res.forEach((link) => {
         console.log(
-          `${link.file} ${link.href} ${truncarTexto(link.text, 50)}\n`
+          `${link.file} ${link.href} ${truncarTexto(link.text, 50)}`
         );
       });
     })
@@ -29,16 +37,16 @@ if (process.argv.length === 1) {
     });
 }
 
-if (process.argv.length === 2) {
-  switch (process.argv[1]) {
+if (args.length === 2) {
+  switch (args[1]) {
     case "--validate":
-      mdlinks(process.argv[0], { validate: true })
+      mdlinks(args[0], { validate: true })
         .then((res) => {
           res.forEach((link) => {
             console.log(
               `${link.file} ${link.href} ${link.ok} ${
                 link.status
-              } ${truncarTexto(link.text, 50)}\n`
+              } ${truncarTexto(link.text, 50)}`
             );
           });
         })
@@ -47,11 +55,11 @@ if (process.argv.length === 2) {
         });
       break;
     case "--stats":
-      mdlinks(process.argv[0], { validate: true })
+      mdlinks(args[0], { validate: true })
         .then((res) => {
           let estadistica = estadisticas(res);
-          console.log(`Total: ${estadistica.totalLinks}\n`);
-          console.log(`Unique: ${estadistica.linksUnicos}\n`);
+          console.log(`Total: ${estadistica.totalLinks}`);
+          console.log(`Unique: ${estadistica.linksUnicos}`);
         })
         .catch((err) => {
           console.error(err);
@@ -65,18 +73,18 @@ if (process.argv.length === 2) {
   }
 }
 
-if (process.argv.length === 3) {
+if (args.length === 3) {
   if (
-    (process.argv[1] === "--stats" && process.argv[2] === "--validate") ||
-    (process.argv[1] === "--validate" && process.argv[2] === "--stats")
+    (args[1] === "--stats" && args[2] === "--validate") ||
+    (args[1] === "--validate" && args[2] === "--stats")
   ) {
-    mdlinks(process.argv[0], { validate: true })
+    mdlinks(args[0], { validate: true })
       .then((res) => {
         let estadistica = estadisticas(res);
         let linksRotosEstadistica = linksRotos(res);
-        console.log(`Total: ${estadistica.totalLinks}\n`);
-        console.log(`Unique: ${estadistica.linksUnicos}\n`);
-        console.log(`Broken: ${linksRotosEstadistica.length}\n`);
+        console.log(`Total: ${estadistica.totalLinks}`);
+        console.log(`Unique: ${estadistica.linksUnicos}`);
+        console.log(`Broken: ${linksRotosEstadistica.length}`);
       })
       .catch((err) => {
         console.error(err);

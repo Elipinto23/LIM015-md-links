@@ -1,7 +1,7 @@
 function estadisticas(links) {
   const totalLinks = links.length;
   const linksUnicos = new Set(links.map((link) => link.href));
-  return { totalLinks: totalLinks, linksUnicos: linksUnicos };
+  return { totalLinks: totalLinks, linksUnicos: linksUnicos.size };
 }
 
 function linksRotos(links) {
