@@ -67,8 +67,8 @@ if (process.argv.length === 2) {
 
 if (process.argv.length === 3) {
   if (
-    (process.args[1] === "--stats" && process.args[2] === "--validate") ||
-    (process.args[1] === "--validate" && process.args[2] === "--stats")
+    (process.argv[1] === "--stats" && process.argv[2] === "--validate") ||
+    (process.argv[1] === "--validate" && process.argv[2] === "--stats")
   ) {
     mdlinks(process.argv[0], { validate: true })
       .then((res) => {
