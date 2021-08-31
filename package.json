@@ -1,10 +1,10 @@
 {
   "name": "md-links",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "Comprobacion de links",
-  "main": "./src/md-links.js",
+  "main": "src/md-links.js",
   "bin": {
-    "md-links": "/src/md-links-cli.js"
+    "md-links": "src/md-links-cli.js"
   },
   "directories": {
     "test": "test"
@@ -23,10 +23,9 @@
   },
   "homepage": "https://github.com/Elipinto23/LIM015-md-links#readme",
   "files": [
-    "index.js",
-    "./src/md-links.js",
-    "./src/md-links-cli.js",
-    "./src/funciones.js"
+    "src/md-links.js",
+    "src/md-links-cli.js",
+    "src/funciones.js"
   ],
   "dependencies": {
     "chalk": "^4.1.1",
