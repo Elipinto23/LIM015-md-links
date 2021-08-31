@@ -5,7 +5,7 @@ const {
   buscarArchivosMd,
   validarLinks,
   buscarLinksEnArchivo,
-} = require("./src/funciones");
+} = require("./funciones.js");
 
 mdLinks = function (path, opts = { validate: false }) {
   return new Promise((resolve, reject) => {
@@ -32,6 +32,4 @@ mdLinks = function (path, opts = { validate: false }) {
   });
 };
 
-module.exports = {
-  mdLinks,
-};
+module.exports = mdLinks;
