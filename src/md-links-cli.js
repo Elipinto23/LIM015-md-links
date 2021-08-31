@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { estadisticas, linksRotos } = require("./stats.js");
 const { truncarTexto } = require("./funciones.js");
 const mdlinks = require("./md-links.js");
