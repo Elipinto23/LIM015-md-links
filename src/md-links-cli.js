@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const { estadisticas, linksRotos } = require("./stats.js");
+//para que tome a partir del estadisticas, linksRotos } = require("./stats.js");
 const { truncarTexto } = require("./funciones.js");
 const mdlinks = require("./md-links.js");
-
-//para que tome a partir del tercer argumento como cero
+//tercer argumento como cero
 const [, , ...args] = process.argv;
 
 const textHelp =
@@ -91,3 +90,4 @@ if (args.length === 3) {
       });
   }
 }
+//module.exports = default;
